@@ -4,8 +4,11 @@ services:
         build: ./docker-shopfinder
         volumes:
             - ./mysqldata:/var/lib/mysql
-            #- ./code:/var/www/html
+            - ./code:/var/www/html
         ports:
             - 80:80
         environment:
             - MAGENTO_BASE_URL=${MAGENTO_BASE_URL}
+            - MYSQL_DATABASE=magento2
+            - MYSQL_USER=magento2
+            - MYSQL_PASSWORD=magento2

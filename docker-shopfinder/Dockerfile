@@ -75,12 +75,15 @@ COPY ./shopfinder/Mmaydin /Mmaydin
 # Configure Services and Port
 COPY ./bin/start.sh /start.sh
 COPY ./bin/magento2-start.sh /usr/local/bin/magento2-start.sh
+COPY ./sql/mysql-init.sql /mysql-init.sql
 
-RUN rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql
-
-CMD ["./start.sh"]
-
-EXPOSE 80
+RUN rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld
+RUN chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
+RUN chmod 777 /var/run/mysqld
 
 # Volume configuration
 VOLUME ["/var/lib/mysql", "/var/www/html"]
+
+EXPOSE 80
+
+CMD ["./start.sh"]
