@@ -1,0 +1,9 @@
+magento2:
+    build: ./docker-shopfinder
+    volumes:
+        - ./mysql_data:/var/lib/mysql
+        - ./code:/var/www/html
+    ports:
+        - 80:80
+    environment:
+        - MAGENTO_BASE_URL=${MAGENTO_BASE_URL}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Mmaydin\Shopfinder\Api\ShopRepositoryInterface" type="Mmaydin\Shopfinder\Model\ShopRepository" />
+    <preference for="Mmaydin\Shopfinder\Api\Data\ShopSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <virtualType name="Mmaydin\Shopfinder\Model\ResourceModel\Shop\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mma_shop</argument>
+            <argument name="resourceModel" xsi:type="string">Mmaydin\Shopfinder\Model\ResourceModel\Shop</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <!--data provider name which used in shop ui component file -->
+                <item name="shopfinder_record_shop_list_data_source" xsi:type="string">Mmaydin\Shopfinder\Model\ResourceModel\Shop\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
