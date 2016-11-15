@@ -1,13 +1,12 @@
 #!/bin/sh
+
 echo "Initializing setup..."
 MAGENTO_BASE_DOMAIN=$(echo $MAGENTO_BASE_URL | sed 's/http:\/\///g')
 MAGENTO_BASE_DOMAIN=${MAGENTO_BASE_DOMAIN%/}
+MAGENTO_BASE_URL=http://${MAGENTO_BASE_DOMAIN}/
+
 cd /var/www/html
 if [ -f ./app/etc/config.php ] || [ -f ./app/etc/env.php ]; then
-    if ! [[ "$MAGENTO_BASE_URL" =~ '/'$ ]]; then 
-        echo "Found this url $MAGENTO_BASE_URL but it is not valid so we change to $MAGENTO_BASE_URL/"
-        MAGENTO_BASE_URL="$MAGENTO_BASE_URL/"
-    fi
     echo "Update Magento 2 base url to $MAGENTO_BASE_URL"
     /usr/bin/php ./bin/magento setup:store-config:set --base-url="$MAGENTO_BASE_URL"
     /usr/bin/php ./bin/magento cache:flush
@@ -20,11 +19,7 @@ if [ -f ./app/etc/config.php ] || [ -f ./app/etc/env.php ]; then
 fi
 
 echo "Download Magento2 ..."
-if [ -f ./magento2-2.1.2.tar.gz ]; then
-    tar xzf ./magento2-2.1.2.tar.gz
-else
-    curl -L http://pubfiles.nexcess.net/magento/ce-packages/magento2-2.1.2.tar.gz | tar xzf - -o -C .
-fi
+curl -L http://pubfiles.nexcess.net/magento/ce-packages/magento2-2.1.2.tar.gz | tar xzf - -o -C .
 echo "Download Magento2 Complete"
 
 echo "Download Magento2 Shopfinder Module"

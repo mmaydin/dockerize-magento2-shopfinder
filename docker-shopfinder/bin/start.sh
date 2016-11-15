@@ -2,6 +2,6 @@
 echo "Service start"
 /bin/bash /usr/local/bin/magento2-start.sh &
 if ! [ -f /var/www/html/app/etc/config.php ]; then
-    mysqld --defaults-file=${mysql_conf} --initialize --user=mysql
+    mysqld --defaults-file=/etc/mysql/my.cnf --initialize --user=mysql
 fi
 /usr/bin/supervisord -n -c ${supervisor_conf}
