@@ -27,9 +27,9 @@ else
 fi
 echo "Download Magento2 Complete"
 
-echo "Download Shopfinder"
+echo "Download Magento2 Shopfinder Module"
 cp -r /Mmaydin ./app/code/
-echo "Download Shopfinder Complete"
+echo "Download Magento2 Shopfinder Module Complete"
 
 chmod -R 777 ./var
 chown -R www-data. /var/www/html
