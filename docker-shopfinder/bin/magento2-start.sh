@@ -47,6 +47,7 @@ else
 fi
 
 echo "Copy Magento2 Shopfinder Module"
+mkdir -p ./app/code
 cp -r /Mmaydin ./app/code/Mmaydin
 echo "Copy Magento2 Shopfinder Module Complete"
 
