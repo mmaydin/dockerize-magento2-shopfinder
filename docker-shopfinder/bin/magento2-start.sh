@@ -47,7 +47,7 @@ else
 fi
 
 echo "Copy Magento2 Shopfinder Module"
-cp -r /Mmaydin ./app/code/
+cp -r /Mmaydin ./app/code/Mmaydin
 echo "Copy Magento2 Shopfinder Module Complete"
 
 chmod -R 777 ./var
