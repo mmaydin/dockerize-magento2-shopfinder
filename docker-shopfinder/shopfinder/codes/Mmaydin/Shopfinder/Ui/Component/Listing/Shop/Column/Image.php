@@ -51,7 +51,7 @@ class Image extends \Magento\Ui\Component\Listing\Columns\Column
                     $item[$fieldName . '_alt'] = $this->getAlt($item);
                     $item[$fieldName . '_link'] = $this->_urlBuilder->getUrl(
                         'shopfinder/shop/addrow',
-                        ['shop_id' => $item['shop_id']]
+                        ['id' => $item['shop_id']]
                     );
                     $item[$fieldName . '_orig_src'] = $imagePath;
                 }
