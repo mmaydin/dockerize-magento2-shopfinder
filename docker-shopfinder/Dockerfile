@@ -70,7 +70,7 @@ RUN mkdir -p /run/php && \
     chown -R www-data:www-data /run/php
 
 # Add Shopfinder module
-COPY ./shopfinder/Mmaydin /Mmaydin
+COPY ./shopfinder /shopfinder
 
 # Configure Services and Port
 COPY ./bin/start.sh /start.sh

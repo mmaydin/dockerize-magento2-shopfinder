@@ -48,9 +48,12 @@ fi
 
 echo "Copy Magento2 Shopfinder Module"
 mkdir -p ./app/code
-cp -r /Mmaydin ./app/code/Mmaydin
+mkdir -p ./pub/media
+cp -r /shopfinder/codes/Mmaydin ./app/code/Mmaydin
+cp -r /shopfinder/images/mmaydin ./pub/media/mmaydin
 echo "Copy Magento2 Shopfinder Module Complete"
 
+mkdir ./var/di
 chmod -R 777 ./var
 chown -R www-data. /var/www/html
 chmod +x ./bin/magento
