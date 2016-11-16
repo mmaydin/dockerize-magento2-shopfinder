@@ -20,7 +20,6 @@ if [ -f ./app/etc/config.php ] || [ -f ./app/etc/env.php ]; then
 fi
 
 echo "Download Magento 2 ..."
-#curl -L http://pubfiles.nexcess.net/magento/ce-packages/magento2-2.1.2.tar.gz | tar xzf - -o -C .
 if [ -f ./magento2-2.1.2.tar.gz ]; then
     magento2md5=$(md5sum ./magento2-2.1.2.tar.gz | cut -d ' ' -f 1)
     if [ $magento2md5 != "b23e5b6f1b18ec049538ee46531e2542" ]; then
