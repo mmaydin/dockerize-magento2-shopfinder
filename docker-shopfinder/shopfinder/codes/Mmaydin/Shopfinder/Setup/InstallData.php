@@ -41,7 +41,7 @@ class InstallData implements InstallDataInterface
             $setup->getTable('store'),
             [
                 'store_id' => 2,
-                'name' => 'UEA - English',
+                'name' => 'UAE - English',
                 'code' => 'en_ae',
                 'website_id' => 1,
                 'group_id' => 1,
@@ -72,7 +72,7 @@ class InstallData implements InstallDataInterface
                 'name' => 'Muscat City Center',
                 'identifier' => 'store-07751',
                 'is_active' => 1,
-                'country' => 'UAE',
+                'country' => 'AE',
                 'image' => 'mmaydin/shopfinder/images/m/u/muscat-city-center.jpg',
                 'created_at' => $createdAt
             ]
@@ -85,7 +85,7 @@ class InstallData implements InstallDataInterface
                 'name' => 'Mercato Mall',
                 'identifier' => 'store-07290',
                 'is_active' => 1,
-                'country' => 'UAE',
+                'country' => 'AE',
                 'image' => 'mmaydin/shopfinder/images/m/e/mercato-mall.jpg',
                 'created_at' => $createdAt
             ]
@@ -98,7 +98,7 @@ class InstallData implements InstallDataInterface
                 'name' => 'Dubai Mall',
                 'identifier' => 'store-07266',
                 'is_active' => 1,
-                'country' => 'UAE',
+                'country' => 'AE',
                 'image' => 'mmaydin/shopfinder/images/d/u/dubai-mall.jpg',
                 'created_at' => $createdAt
             ]
@@ -111,7 +111,7 @@ class InstallData implements InstallDataInterface
                 'name' => 'City Centre Mirdif',
                 'identifier' => 'store-07560',
                 'is_active' => 1,
-                'country' => 'UAE',
+                'country' => 'AE',
                 'image' => 'mmaydin/shopfinder/images/c/i/city-centre-mirdif.jpg',
                 'created_at' => $createdAt
             ]
