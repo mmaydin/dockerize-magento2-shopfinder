@@ -4,7 +4,7 @@ services:
         build: ./docker-shopfinder
         volumes:
             - ./mysqldata:/var/lib/mysql
-            - ./code:/var/www/html
+            #- ./code:/var/www/html
         ports:
             - 80:80
         environment:
