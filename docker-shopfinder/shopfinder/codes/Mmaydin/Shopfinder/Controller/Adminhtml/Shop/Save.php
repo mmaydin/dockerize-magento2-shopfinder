@@ -47,14 +47,20 @@ class Save extends \Magento\Backend\App\Action
         }
         try {
             $rowData = $this->_objectManager->create('Mmaydin\Shopfinder\Model\Shop');
+            if (isset($data['image']['value'])) {
+                $oldImage = $data['image']['value'];
+                unset($data['image']);
+                $data['image'] = $oldImage;
+            } else {
+                $data['image'] = 'mmaydin/shopfinder/images/e/m/empty.jpg';
+            }
+
             $rowData->setData($data);
             if (isset($data['shop_id'])) {
                 $rowData->setModifiedAt(date('Y-m-d H:i:s'));
             } else {
                 $rowData->setCreatedAt(date('Y-m-d H:i:s'));
             }
-
-
 
             if (
                 isset($_FILES['image']) &&
@@ -77,13 +83,10 @@ class Save extends \Magento\Backend\App\Action
                     );
                     $rowData->setImage($baseMediaPath . $result['file']);
                 } catch (\Exception $e) {
-                    $rowData->setImage('mmaydin/shopfinder/images/e/m/empty.jpg');
                     if ($e->getCode() == 0) {
                         $this->messageManager->addError($e->getMessage());
                     }
                 }
-            } else {
-                $rowData->setImage('mmaydin/shopfinder/images/e/m/empty.jpg');
             }
 
             $rowData->save();
